@@ -15,7 +15,7 @@ openai.api_key = os.getenv("TOKAI")
 async def main():
     bot = Bot(token=os.getenv("TOKEN"), parse_mode="HTML")
     dp = Dispatcher()
-
+    
     dp.include_router(funcs.router)
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)
